@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<body>
+    <div ng-controller="MyController">
+        Hello {{greetMe}}!
+    </div>
+    <script src="lib/js/angular.js"></script>
+    <script>
+    console.log('first console');
+    var myApp = angular.module('myApp', []);
+    myApp.controller('MyController', ['$scope', function($scope) {
+        console.log('second console');
+        $scope.greetMe = 'World';
+        var self = $scope;
+        // window.myControllerScope = $scope;
+        document.addEventListener('click', function() {
+            self.greetMe = (self.greetMe === 'World') ? 'temp' : 'World';
+            console.log(self.greetMe);
+        });
+    }]);
+
+    console.log('third console');
+    angular.element(function() {
+        console.log('forth console');
+        angular.bootstrap(document, ['myApp']);
+    });
+    </script>
+</body>
+
+</html>
