@@ -6,8 +6,9 @@
         <input type="text" name="myInput" ng-model="firstname">
         <div></div>
         <input type="text" name="myInput" ng-model="lastname">
-
-        <p ng-bind="firstname + ' ' + lastname"> Hi There</p>
+        <div ng-show="isVisible">
+            <p ng-bind="firstname + ' ' + lastname"> Hi There</p>
+        </div>
     </div>
     <script src="lib/js/angular.js"></script>
     <script src="js/app.js"></script>
