@@ -1,0 +1,21 @@
+a)	What is modules, controllers, directives, filters?
+
+directives- These are markers on DOM element which tells angular to attach secial behavior.
+eg. ng-bind, ng-model, ng-class, ng-controller
+
+controllers- Angular controller is a functions to be attached to the DOM element. It creates special scope for that DOM element.
+
+filters- are like functions which are used to format/filter input data.
+
+modules- It is container for controllers, directives, filters, services etc
+
+
+b)	What is $scope, $rootScope?
+ - $rootScope is created with ng-app. It is like parent of all the scopes
+ - $scope is created with the directives like ng-controller, ng-repeat and these scopes are like child scopes of $rootScope
+
+c) Data Binding? And how data binding works ?
+ - It is like binding the some data with DOM element achieved directives like ng-bind, ng-model
+
+ - angular creates watchers for the expressions whenever it sees such directives.
+ - and re-render when data changes.

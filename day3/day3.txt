@@ -1,0 +1,34 @@
+
+
+
+b) What is factory, service and provider? Difference between them?
+
+Angular provides us with three ways to create and register our own service are Factory, Service, Provider.
+All are methods of module. All takes two parameters 'name' and function.
+
+factory- In this we return an object containing properties and functions needed.
+service- In this we use 'this' becuase it works like a constructor function.
+provider- these are the only services you can pass into your .config() function.
+
+eg.
+app.service('myService', function() {
+
+  // service is just a constructor function
+  // that will be called with 'new'
+
+  this.sayHello = function(name) {
+     return "Hi " + name + "!";
+  };
+});
+
+app.factory('myFactory', function() {
+
+  // factory returns an object
+  // you can run some code before
+
+  return {
+    sayHello : function(name) {
+      return "Hi " + name + "!";
+    }
+  }
+});

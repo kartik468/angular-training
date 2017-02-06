@@ -11,7 +11,6 @@
         window.myFirstControllerScope = $scope;
         $scope.firstname = "John";
         $scope.lastname = "Doe";
-        $scope.isVisible = false;
-        debugger;
+        $scope.isVisible = true;
     }])
 }());

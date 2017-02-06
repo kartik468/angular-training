@@ -1,0 +1,35 @@
+b)	How to create angular application?
+
+We can create angular application by using 'ng-app' directive or by using 'bootstrap' method.
+
+If we use this directive in html angular automatically bootstraps the angular app.
+eg.
+<!doctype html>
+<html ng-app="myApp">
+  <body>
+    <div ng-controller="MyController">
+    	Hello {{greetMe}}!
+  	</div>
+
+    <script src="angular.js"></script>
+  </body>
+</html>
+
+var myApp = angular.module('myApp', []);
+
+myApp.controller('MyController', ['$scope', function ($scope) {
+$scope.greetMe = 'World';
+}]);
+
+
+We can manually bootstrap angular app by using 'bootstrap' method provided by angular.
+eg.
+var myApp = angular.module('myApp', []);
+
+myApp.controller('MyController', ['$scope', function ($scope) {
+$scope.greetMe = 'World';
+}]);
+
+angular.element(function() {
+  angular.bootstrap(document, ['myApp']);
+});
