@@ -1,5 +1,14 @@
+a) $http , $location, $interval, $timeout
 
+$http , $location, $interval, $timeout these are angular js services.
 
+$http- It is used to make ajax request.
+
+$location- It used for parsing browsers address. This service has methods for getting urls various parts like url, protocol, host, port, path.
+
+$interval- it is wrapper for window.setInterval
+
+$timeout- it is wrapper for window.setTimeout
 
 b) What is factory, service and provider? Difference between them?
 
@@ -32,3 +41,25 @@ app.factory('myFactory', function() {
     }
   }
 });
+
+c)	Event binding?
+In angular we can bind events to the elements by using directives like ng-click, ng-keypress, ng-mousedown etc.
+we can specify expression which we want to execute when the event occurs.
+eg.
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<button ng-click="myFunction()">Click me!</button>
+
+<p>{{ count }}</p>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.count = 0;
+    $scope.myFunction = function() {
+        $scope.count++;
+    }
+});
+</script>

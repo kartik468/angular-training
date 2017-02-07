@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="MyController">
+        <div class="records-container" ng-repeat="record in records">
+            <ul>
+                <li class="Name">{{record.Name}}</li>
+                <li class="city">{{record.City}}</li>
+                <li class="country">{{record.Country}}</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../app/lib/js/angular.js"></script>
+    <script>
+    var myApp = angular.module('myApp', []);
+    myApp.controller('MyController', function($scope, $http) {
+        $scope.records = [{
+            "City": "mumbai",
+            "Country": "india",
+            "Name": "kartik",
+        }]
+        $http({
+            method: 'GET',
+            url: 'http://www.w3schools.com/angular/customers.php'
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.records = response.data.records;
+        }, function errorCallback(response) {
+            debugger;
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+    });
+    </script>
+</body>
+
+</html>
