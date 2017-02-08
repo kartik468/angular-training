@@ -7,13 +7,18 @@
 
 <body>
     <div ng-app="myApp" ng-controller="MyController">
-        <div class="records-container" ng-repeat="record in records">
-            <ul>
-                <li class="Name">{{record.Name}}</li>
-                <li class="city">{{record.City}}</li>
-                <li class="country">{{record.Country}}</li>
-            </ul>
-        </div>
+        <table>
+            <tr>
+                <th class="Name">Name</th>
+                <th class="city">city</th>
+                <th class="country">country</th>
+            </tr>
+            <tr ng-repeat="record in records">
+                <td class="Name">{{record.Name}}</td>
+                <td class="city">{{record.City}}</td>
+                <td class="country">{{record.Country}}</td>
+            </tr>
+        </table>
     </div>
     <script src="../app/lib/js/angular.js"></script>
     <script>
