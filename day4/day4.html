@@ -22,31 +22,37 @@
             </div>
             <br />
             <div>*Username:
-                <input type="email" ng-model="user.email" placeholder="Email (this will become your username)" required />
+                <input type="email" ng-model="email" placeholder="Email (this will become your username)" ng-change="{{validateEmailForEquality()}}" required />
+                <span>{{email}}</span>
             </div>
             <br />
             <div>*Confirm Email:
-                <input type="email" ng-model="user.confirmEmail" placeholder="Confirm Email" ng-class="{user.email === user.confirmEmail}" required />
+                <input type="email" class="re-enter-email-input" ng-model="confirmEmail" placeholder="Confirm Email" required />
+                <span>{{confirmEmail}}</span>
             </div>
             <br />
             <div>*Password:
-                <input type="password" ng-model="user.password" placeholder="Password" required />
+                <input type="password" ng-model="password" placeholder="Password" required />
+                <span>{{password}}</span>
             </div>
             <br />
             <div>*Re-enter Password:
-                <input type="password" ng-model="user.reEnterPassword" placeholder="Re-enter Password" required />
+                <input type="password" class="re-enter-password-input" ng-model="confirmPassword" placeholder="Re-enter Password" ng-change="{{validatePasswordForEquality()}}" required />
+                <span>{{confirmPassword}}</span>
             </div>
             <br />
             <div>*First Name:
-                <input type="text" ng-model="user.firstName" placeholder="First Name" required />
+                <input type="text" ng-model="firstName" placeholder="First Name" required />
+                <span>{{firstName}}</span>
             </div>
             <br />
             <div>Last Name:
-                <input type="password" ng-model="user.lastName" placeholder="Last Name" />
+                <input type="password" ng-model="lastName" placeholder="Last Name" />
+                <span>{{lastName}}</span>
             </div>
             <br />
             <!-- <input type="button" ng-click="reset()" value="Reset" /> -->
-            <input type="submit" ng-click="submitForm(user, reviewForm.$valid)" value="Save" />
+            <input type="submit" ng-click="submitForm(reviewForm.$valid)" value="Save" />
             <div>syntax of form: {{reviewForm.$valid}}</div>
             <div ng-show="formSubmitted">form submitted succssfully</div>
         </form>
@@ -58,12 +64,48 @@
         myApp.controller('ExampleController', ['$scope', function($scope) {
             $scope.master = {};
             $scope.formSubmitted = false;
-            $scope.institutionNames = ['Institution A', 'Institution B', 'Institution C']
+            $scope.institutionNames = ['Institution A', 'Institution B', 'Institution C'];
+            $scope.email = '';
+            $scope.confirmEmail = '';
+            $scope.password = '';
+            $scope.confirmPassword = '';
+            $scope.firstName = '';
+            $scope.lastName = '';
 
-            $scope.submitForm = function(user, valid) {
-                if (valid && user.password === user.reEnterPassword && user.email === user.reEnterPassword) {
+            $scope.validateEmailForEquality = function() {
+                var inputElement;
+                if ($scope.email && $scope.confirmEmail) {
+                    inputElement = angular.element(document.getElementsByClassName('re-enter-email-input'));
+                    if ($scope.email !== $scope.confirmEmail) {
+                        inputElement.removeClass('ng-valid').addClass('ng-invalid');
+                    } else {
+                        inputElement.addClass('ng-valid').removeClass('ng-invalid');
+                    }
+                }
+            }
+
+            $scope.validatePasswordForEquality = function() {
+                var inputElement;
+                if ($scope.password && $scope.confirmPassword) {
+                    inputElement = angular.element(document.getElementsByClassName('re-enter-password-input'));
+                    if ($scope.password !== $scope.confirmPassword) {
+                        inputElement.removeClass('ng-valid').addClass('ng-invalid');
+                    } else {
+                        inputElement.addClass('ng-valid').removeClass('ng-invalid');
+                    }
+                }
+            }
+
+            $scope.submitForm = function(valid) {
+                if (valid && $scope.password === $scope.reEnterPassword && $scope.email === $scope.confirmEmail) {
                     $scope.formSubmitted = true;
                     return;
+                }
+                if ($scope.password !== $scope.reEnterPassword) {
+                    console.log('password dose not match');
+                }
+                if ($scope.email !== $scope.confirmEmail) {
+                    console.log('email dose not match');
                 }
                 alert('invalid form');
             };
