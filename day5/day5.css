@@ -1,0 +1,8 @@
+.item-field {
+    display: inline-block;
+}
+
+.item-close {
+    color: red;
+    cursor: pointer;
+}

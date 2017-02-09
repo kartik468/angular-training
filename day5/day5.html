@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping cart</title>
+    <link rel="stylesheet" type="text/css" href="day5.css">
+</head>
+
+<body ng-app="shoppingApp">
+    <div ng-controller="shoppingController">
+        <div class="shopping-cart-container">
+            <div>My Shopping List</div>
+            <div ng-repeat="item in items">
+                <my-item></my-item>
+            </div>
+            <div ng-show="currentItem.itemName">
+            	<my-item-to-display id="my-temp-item"></my-item-to-display>
+            </div>
+            <form class="simple-form" name="reviewForm">
+                <div>Item Name:
+                    <input type="text" ng-model="currentItem.itemName" placeholder="Item Name" />
+                    <span>{{currentItem.itemName}}</span>
+                </div>
+                <div>Quantity:
+                    <input type="number" ng-model="currentItem.itemQuantity" placeholder="Quantity" />
+                    <span>{{currentItem.itemQuantity}}</span>
+                </div>
+                <!--<input type="text" name="addItemInput" ng-model="newItem" placeholder="add item"> -->
+            </form>
+            <button ng-click="addToList()">Add</button>
+        </div>
+    </div>
+    <script src="/app/lib/js/angular.js"></script>
+    <script src="day5.js"></script>
+</body>
+
+</html>
