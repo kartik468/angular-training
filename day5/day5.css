@@ -6,3 +6,15 @@
     color: red;
     cursor: pointer;
 }
+
+.temp-item {
+    opacity: 0.8;
+}
+
+.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+}
+
+.ng-valid.ng-dirty {
+    border-color: #78FA89;
+}

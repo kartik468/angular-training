@@ -13,24 +13,26 @@
             <div ng-repeat="item in items">
                 <my-item></my-item>
             </div>
-            <div ng-show="currentItem.itemName">
-            	<my-item-to-display id="my-temp-item"></my-item-to-display>
+            <div class="temp-item" ng-show="item.name">
+                <my-item-to-display id="my-temp-item"></my-item-to-display>
             </div>
             <form class="simple-form" name="reviewForm">
                 <div>Item Name:
-                    <input type="text" ng-model="currentItem.itemName" placeholder="Item Name" />
-                    <span>{{currentItem.itemName}}</span>
+                    <input type="text" ng-model="item.name" ng-change="checkIfPresent()" placeholder="Item Name" required class="item-name-input" />
+                    <span>{{item.name}}</span>
                 </div>
                 <div>Quantity:
-                    <input type="number" ng-model="currentItem.itemQuantity" placeholder="Quantity" />
-                    <span>{{currentItem.itemQuantity}}</span>
+                    <input type="number" ng-init='item.quantity =1' ng-model="item.quantity" placeholder="Quantity" class="quantity-input" required />
+                    <span>{{item.quantity}}</span>
                 </div>
                 <!--<input type="text" name="addItemInput" ng-model="newItem" placeholder="add item"> -->
             </form>
             <button ng-click="addToList()">Add</button>
+            <div>{{message}}</div>
         </div>
     </div>
     <script src="/app/lib/js/angular.js"></script>
+    <script src="/app/lib/js/underscore.js"></script>
     <script src="day5.js"></script>
 </body>
 
