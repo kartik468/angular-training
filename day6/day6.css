@@ -1,0 +1,25 @@
+.active {
+    color: red;
+    font-weight: bold;
+}
+
+.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+}
+
+.ng-valid.ng-dirty {
+    border-color: #78FA89;
+}
+
+.item-field {
+    display: inline-block;
+}
+
+.item-close {
+    color: red;
+    cursor: pointer;
+}
+
+.temp-item {
+    opacity: 0.8;
+}

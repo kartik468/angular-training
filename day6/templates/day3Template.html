@@ -1,0 +1,14 @@
+<div ng-controller="MyController">
+    <table>
+        <tr>
+            <th class="Name">Name</th>
+            <th class="city">city</th>
+            <th class="country">country</th>
+        </tr>
+        <tr ng-repeat="record in records">
+            <td class="Name">{{record.Name}}</td>
+            <td class="city">{{record.City}}</td>
+            <td class="country">{{record.Country}}</td>
+        </tr>
+    </table>
+</div>

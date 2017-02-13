@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ui-router-example</title>
+    <link rel="stylesheet" type="text/css" href="day6.css">
+</head>
+
+<body ng-app="routerTask">
+    <div id="links-container">
+        <a ui-sref="day2" ui-sref-active="active">day 2</a>
+        <a ui-sref="day3" ui-sref-active="active">day 3</a>
+        <a ui-sref="day4" ui-sref-active="active">day 4</a>
+        <a ui-sref="day5" ui-sref-active="active">day 5</a>
+    </div>
+    <div id="main-container">
+        <ui-view></ui-view>
+    </div>
+
+    <script src="/app/lib/js/angular.js"></script>
+    <script src="/app/lib/js/angular-ui-router.js"></script>
+    <script src="day6.js"></script>
+    <script src="day6-Directives.js"></script>
+    <script src="day6-Controllers.js"></script>
+
+</body>
+
+</html>
