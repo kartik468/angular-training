@@ -1,6 +1,6 @@
 a) $http , $location, $interval, $timeout
 
-$http , $location, $interval, $timeout these are angular js services.
+$http , $location, $interval, $timeout these are angular js built-in services.
 
 $http- It is used to make ajax request.
 
@@ -12,7 +12,8 @@ $timeout- it is wrapper for window.setTimeout
 
 b) What is factory, service and provider? Difference between them?
 
-Angular provides us with three ways to create and register our own service are Factory, Service, Provider.
+Angular provides three ways to create and register our own service and they are as
+- Factory, Service, Provider.
 All are methods of module. All takes two parameters 'name' and function.
 
 factory- In this we return an object containing properties and functions needed.
